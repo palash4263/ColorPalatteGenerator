@@ -1,0 +1,186 @@
+/* App.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle, #1f1c2c, #928dab);
+  color: #e0e0e0;
+}
+
+.container {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.container .color {
+  margin: 12px;
+  padding: 15px;
+  list-style: none;
+  cursor: pointer;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 0px 30px rgba(72, 84, 96, 0.7);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.container .color:before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #ff5f6d, #ffc371);
+  filter: blur(120px);
+  transition: opacity 0.5s ease;
+  z-index: 0;
+  opacity: 0;
+}
+
+.container .color:hover:before {
+  opacity: 1;
+}
+
+.container .color .rect-box {
+  width: 185px;
+  height: 188px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.container .color:hover .rect-box {
+  filter: brightness(115%);
+  transform: scale(1.05);
+}
+
+.color .hex-value {
+  display: block;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 16px 0 8px;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.6);
+}
+
+h1 {
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  text-shadow: 0px 0px 10px #5f27cd;
+}
+
+.refresh-btn {
+  position: fixed;
+  left: 50%;
+  bottom: 40px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #ff5f6d, #ffc371);
+  padding: 13px 20px;
+  border: none;
+  transform: translateX(-50%);
+  box-shadow: 0 0px 30px 0px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  animation: glow 1.5s infinite alternate;
+}
+
+.refresh-btn:hover {
+  background: linear-gradient(45deg, #ffc371, #ff5f6d);
+  box-shadow: 0 0px 30px 0px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 15px #ff5f6d, 0 0 30px #ff5f6d, 0 0 45px #ff5f6d, 0 0 60px #ff5f6d;
+  }
+  100% {
+    box-shadow: 0 0 15px #ffc371, 0 0 30px #ffc371, 0 0 45px #ffc371, 0 0 60px #ffc371;
+  }
+}
+
+
+.copied-message {
+  margin: 10px;
+  color: #00ffc3;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  text-shadow: 0px 0px 10px #00ffc3;
+}
+
+.search-container {
+  position: relative;
+  margin: 20px auto;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 0px 20px rgba(255, 255, 255, 0.2);
+}
+
+.search-input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  box-shadow: 0 0px 20px rgba(255, 255, 255, 0.1);
+}
+
+.search-input:hover {
+  box-shadow: 0 0px 20px rgba(255, 255, 255, 0.3);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    margin: 10px;
+  }
+
+  .container .color {
+    margin: 8px;
+    padding: 10px;
+    width: calc(100% / 2 - 20px);
+  }
+
+  .color .rect-box {
+    width: 100%;
+    height: 148px;
+  }
+
+  .color .hex-value {
+    font-size: 1.05rem;
+  }
+
+  .refresh-btn {
+    font-size: 1rem;
+  }
+}
